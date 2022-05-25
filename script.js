@@ -11,7 +11,7 @@ function showError(input, message) {
   const formControl = input.parentElement;
   formControl.className = "form-control error";
   const small = formControl.querySelector("small");
-  small.innerTex = message;
+  small.innerText = message;
 }
 
 // Show success outline
@@ -34,9 +34,10 @@ function checkEmail(input) {
 // Check required fields 
 function checkRequired(inputArr) {
   let isRequired = false;
-  inputArr.forEach(input => {
+  inputArr.forEach(function(input) {
     if (input.value.trim() === '') {
       showError(input, `${getFieldName(input)} is required`);
+      isRequired = true;
     } else {
       showSuccess(input);
     }
